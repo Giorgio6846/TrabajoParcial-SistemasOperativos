@@ -2,3 +2,8 @@
 data_layer/Dataset/books.csv
 .DS_Store
 data_layer/.DS_Store
+data_layer/Dataset/tablaAutor.csv
+data_layer/Dataset/tablaEditorial.csv
+data_layer/Dataset/tablaLibro.csv
+.DS_Store
+.DS_Store
