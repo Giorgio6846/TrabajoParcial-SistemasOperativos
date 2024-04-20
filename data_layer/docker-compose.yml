@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: 'loliDB'
+    ports:
+      -6543:5432
+  
+  
