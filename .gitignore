@@ -5,6 +5,5 @@ data_layer/.DS_Store
 data_layer/Dataset/tablaAutor.csv
 data_layer/Dataset/tablaEditorial.csv
 data_layer/Dataset/tablaLibro.csv
-.DS_Store
-.DS_Store
 /application_layer/node_modules
+application_layer/credentials.json
