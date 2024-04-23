@@ -24,4 +24,4 @@ COPY /presentation_layer /webServer/presentation_layer
 
 WORKDIR /webServer/application_layer
 
-CMD ["node", "server.js"]
+CMD ["npx","nodemon", "server.js"]
