@@ -1,0 +1,10 @@
+services:
+  
+  webServer:
+    image: tpso:tag
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: 'always'
+    ports:
+      - '8080:8080'

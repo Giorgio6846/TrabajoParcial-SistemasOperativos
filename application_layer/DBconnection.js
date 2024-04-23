@@ -4,6 +4,8 @@ var credentials = JSON.parse(fs.readFileSync('./credentials.json', 'utf8'))
 
 const client = new Client(credentials);
 
+
+
 client
     .connect()
     .then(() => {
@@ -24,7 +26,6 @@ client
             .catch((err) => {
                 console.error('Error closing connection', err);
             })
-
     })
     })
     .catch((err) => {

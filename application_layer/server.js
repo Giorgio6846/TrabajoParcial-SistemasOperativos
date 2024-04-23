@@ -1,16 +1,34 @@
 const fs = require('fs')
-const http = require('http');
-const index = fs.readFileSync('../presentation_layer/index.html')
+const express = require('express')
+const path = require('path')
+const expressHandlebars = require('express-handlebars')
 
+const app = express()
+
+app.use(express.urlencoded({extended: false}))
+
+app.set("view engine", "ejs")
+app.set("views", path.join(__dirname, "/../presentation_layer/"))
 const host = 'localhost'
 const port = 8080;
 
-const requestListener = function (req, res) {
-    res.writeHead(200);
-    res.end("My first server!");
-}
-
-const server = http.createServer(requestListener);
-server.listen(port, host, () => {
+//Enables the server
+app.listen(port, host, () => {
     console.log(`Server is running on http://${host}:${port}`)
+})
+
+app.get('/', (req,res) =>{
+    res.render("home")
+})
+
+app.get('/contact', (req,res) =>{
+    res.render("contact")
+})
+
+app.get('/books', (req,res) =>{
+    res.render("books")
+})
+
+app.get('/book', (req,res) =>{
+    res.render("book")
 })
