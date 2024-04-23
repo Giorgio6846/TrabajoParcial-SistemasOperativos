@@ -20,7 +20,7 @@ COPY /application_layer/server.js /webServer/application_layer/server.js
 COPY /application_layer/DBconnection.js /webServer/application_layer/DBconnection.js
 COPY /application_layer/credentials.json /webServer/application_layer/credentials.json
 
-COPY /presentation_layer /webServer
+COPY /presentation_layer /webServer/presentation_layer
 
 WORKDIR /webServer/application_layer
 

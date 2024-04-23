@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: false}))
 
 app.set("view engine", "ejs")
 app.set("views", path.join(__dirname, "/../presentation_layer/"))
-const host = 'localhost'
+const host = '0.0.0.0'
 const port = 8080;
 
 //Enables the server
