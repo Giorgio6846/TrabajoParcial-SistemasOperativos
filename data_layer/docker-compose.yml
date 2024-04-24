@@ -8,5 +8,3 @@ services:
       POSTGRES_PASSWORD: 'loliDB'
     ports:
       -6543:5432
-  
-  

@@ -2,8 +2,11 @@ const fs = require('fs')
 const express = require('express')
 const path = require('path')
 const expressHandlebars = require('express-handlebars')
+const { returnBook } = require('./DBconnection')
 
 const app = express()
+
+
 
 app.use(express.urlencoded({extended: false}))
 
@@ -18,17 +21,22 @@ app.listen(port, host, () => {
 })
 
 app.get('/', (req,res) =>{
-    res.render("home")
+    
 })
 
 app.get('/contact', (req,res) =>{
     res.render("contact")
 })
 
-app.get('/books', (req,res) =>{
+app.get('/books',async (req,res) =>{
     res.render("books")
+    console.log(await returnBook(49))
 })
 
-app.get('/book', (req,res) =>{
+app.get('/book', (req,res) => {
+    res.render("home")
+})
+
+app.post('/book', (req,res) =>{
     res.render("book")
 })
