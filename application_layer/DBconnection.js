@@ -35,8 +35,6 @@ Functions:
                 nombre
 */
 
-let jsonBook
-
 async function connectionToDB(DBquery) {
     await client.connect()
       console.log('Connected to PostgreSQL database');

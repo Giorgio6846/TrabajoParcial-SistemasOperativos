@@ -6,8 +6,6 @@ const { returnBook } = require('./DBconnection')
 
 const app = express()
 
-
-
 app.use(express.urlencoded({extended: false}))
 
 app.set("view engine", "ejs")
@@ -21,7 +19,7 @@ app.listen(port, host, () => {
 })
 
 app.get('/', (req,res) =>{
-    
+    res.render("home")
 })
 
 app.get('/contact', (req,res) =>{
@@ -30,7 +28,6 @@ app.get('/contact', (req,res) =>{
 
 app.get('/books',async (req,res) =>{
     res.render("books")
-    console.log(await returnBook(49))
 })
 
 app.get('/book', (req,res) => {
