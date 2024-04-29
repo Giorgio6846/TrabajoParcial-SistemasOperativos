@@ -4,6 +4,9 @@ const path = require('path')
 const expressHandlebars = require('express-handlebars')
 //const { returnBook } = require('./DBconnection')
 
+const testBook = JSON.parse(fs.readFileSync('./testBook.json', 'utf8'))
+const testBooks = JSON.parse(fs.readFileSync('./testBooks.json', 'utf8'))
+
 const app = express()
 
 app.use(express.urlencoded({extended: false}))
@@ -27,7 +30,7 @@ app.get('/contact', (req,res) =>{
 })
 
 app.get('/books',async (req,res) =>{
-    res.render("books")
+    res.render("books", testBooks)
 })
 
 app.get('/book', (req,res) => {
@@ -35,5 +38,5 @@ app.get('/book', (req,res) => {
 })
 
 app.post('/book', (req,res) =>{
-    res.render("book")
+    res.render("book", testBook)
 })

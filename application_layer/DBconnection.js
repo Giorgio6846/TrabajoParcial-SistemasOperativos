@@ -1,9 +1,9 @@
-const { Client } = require('pg')
+const { Pool } = require('pg')
 var fs = require('fs')
 var credentials = JSON.parse(fs.readFileSync('./credentials.json', 'utf8'))
 const { format } = require('sql-formatter')
 
-const client = new Client(credentials);
+const pool = new Pool(credentials);
 
 /*
 Functions:
@@ -35,6 +35,24 @@ Functions:
                 nombre
 */
 
+pool.on('error', (err,client) => {
+    console.error('Unexpected error on idle client', err)
+    process.exit(-1)
+})
+
+async function connectionToDB(DBquery) {
+    const client = await pool.connect()
+    const res = await client.query(DBquery)
+
+    res.then(data => {
+        const response = data[0]
+        console.log(response)
+    })
+    client.release()
+    return res;
+}
+
+/*
 async function connectionToDB(DBquery) {
     await client.connect()
       console.log('Connected to PostgreSQL database');
@@ -44,7 +62,6 @@ async function connectionToDB(DBquery) {
     return await Promise.resolve(res.rows)
 }
 
-/*
 async function connectionToDB(DBquery) {
     await client
         .connect()
@@ -90,6 +107,7 @@ function returnListBooks(startingIdList) {
                                     JOIN editorial ON libro."idEditorial" = editorial."idEditorial"
                                     JOIN autor ON libro."idAutor" = autor."idAutor"
                                     LIMIT 10`)  
+
 
     return jsonBooks
 }
