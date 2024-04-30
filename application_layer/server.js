@@ -9,6 +9,8 @@ const booksTest = JSON.parse(fs.readFileSync('./testBooks.json', 'utf8'))
 
 const router = express()
 
+var production = true
+
 router.use(express.urlencoded({extended: false}))
 
 router.set("view engine", "ejs")
@@ -30,16 +32,23 @@ router.get('/contact', (req,res) =>{
 })
 
 router.get('/books',async (req,res) =>{
-    console.log(returnBook(23))
-    res.render("books", booksTest)
+    if (production) {
+        res.render("books", returnBooks(20))
+    } else {
+        res.render("books", booksTest)
+    }
 })
 
 router.get('/book', (req,res) => {
     res.render("home")
 })
 
-router.post('/book', (req,res) =>{
-    res.render("book", bookTest)
+router.post('/book', async (req,res) =>{
+    if (production) {
+        res.render("book", await returnBook(30))
+    } else {
+        res.render("book", bookTest)
+    }
 })
 
 router.get('/test/book', async (req,res) => {
