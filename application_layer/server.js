@@ -9,7 +9,7 @@ const booksTest = JSON.parse(fs.readFileSync('./testBooks.json', 'utf8'))
 
 const router = express()
 
-var production = true
+var production = false
 
 router.use(express.urlencoded({extended: false}))
 
