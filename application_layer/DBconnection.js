@@ -1,7 +1,8 @@
 const { Pool } = require('pg')
 var fs = require('fs')
 var credentials = JSON.parse(fs.readFileSync('./credentials.json', 'utf8'))
-const { format } = require('sql-formatter')
+const { format } = require('sql-formatter');
+const { resourceUsage } = require('process');
 
 const pool = new Pool(credentials);
 
@@ -35,83 +36,51 @@ Functions:
                 nombre
 */
 
-pool.on('error', (err,client) => {
-    console.error('Unexpected error on idle client', err)
-    process.exit(-1)
-})
-
-async function connectionToDB(DBquery) {
-    const client = await pool.connect()
-    const res = await client.query(DBquery)
-
-    res.then(data => {
-        const response = data[0]
-        console.log(response)
-    })
-    client.release()
-    return res;
+async function connectionToDB(query) {
+    try {
+        return await pool.query(query)
+    } catch(error) {
+        console.error(error);
+    }
 }
-
-/*
-async function connectionToDB(DBquery) {
-    await client.connect()
-      console.log('Connected to PostgreSQL database');
-      let res = await client.query(format(DBquery, {language: 'sql'}));
-      console.log(res.rows)
-    await client.end()
-    return await Promise.resolve(res.rows)
-}
-
-async function connectionToDB(DBquery) {
-    await client
-        .connect()
-        .then(() => {
-            console.log('Connected to PostgreSQL database');
-
-            client.query(format(DBquery, {language: 'sql'}), async (err,result) => {
-                if(err) {
-                    console.error('Error executing query', err);
-                } else {
-                    console.log('Query result:', result.rows);
-                    jsonBook = result.rows
-                }
-
-            client
-                .end()
-                .then(() => {
-                    console.log('Connection to PostgreSQL closed');
-                })
-                .catch((err) => {
-                    console.error('Error closing connection', err);
-                })
-                console.log(result.rows)
-            })   
-        })
-        .catch((err) => {
-            console.error('Error connecting to PostgreSQL database', err);
-        }); 
-}
-*/
 
 async function returnBook(idBook) {
 
-    return await connectionToDB(`SELECT libro.nombre, libro.precio, libro."numPaginas", libro."anhoPublicado", editorial.nombre, autor."nombresApellidos" FROM libro
+    const queryDB = `SELECT libro.nombre, libro.precio, libro."numPaginas", libro."anhoPublicado", editorial.nombre, autor."nombresApellidos" FROM libro
                         JOIN editorial ON libro."idEditorial" = editorial."idEditorial"
                         JOIN autor ON libro."idAutor" = autor."idAutor"
-                        Where libro."idLibro" = ${idBook}`)
+                        Where libro."idLibro" = ${idBook}`
+
+    let dbResult;
+    try {
+        dbResult = await connectionToDB(queryDB);
+    } catch(err) {
+        console.log('Error: ' + error)
+    }
+    
+    console.log(dbResult.rows)
+
+    return dbResult.rows
 }
 
-function returnListBooks(startingIdList) {
+async function returnListBooks(startingIdList) {
 
-    var jsonBooks = connectionToDB(`SELECT libro.nombre, libro.precio, autor."nombresApellidos", editorial.nombre  FROM libro
+    const queryDB = `SELECT libro.idLibro, libro.nombre, libro.precio, autor."nombresApellidos", editorial.nombre  FROM libro
                                     JOIN editorial ON libro."idEditorial" = editorial."idEditorial"
                                     JOIN autor ON libro."idAutor" = autor."idAutor"
-                                    LIMIT 10`)  
+                                    LIMIT 10`
 
+    let dbResult;
+    try {
+        dbResult = await connectionToDB(queryDB);
+    } catch(err) {
+        console.log('Error: ' + error)
+    }
+    
+    console.log(dbResult.rows)
 
-    return jsonBooks
+    return dbResult.rows
+
 }
-
-console.log("test", returnBook(69))
 
 module.exports = { returnBook, returnListBooks}

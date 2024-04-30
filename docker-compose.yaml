@@ -12,3 +12,4 @@ services:
       - '8080:8080'
     volumes: 
       - ./presentation_layer:/webServer/presentation_layer:website
+      - ./application_layer:/webServer/application_layer:website

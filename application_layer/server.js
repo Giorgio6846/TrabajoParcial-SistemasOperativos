@@ -2,41 +2,46 @@ const fs = require('fs')
 const express = require('express')
 const path = require('path')
 const expressHandlebars = require('express-handlebars')
-//const { returnBook } = require('./DBconnection')
+const { returnBook, returnListBooks } = require('./DBconnection')
 
 const bookTest = JSON.parse(fs.readFileSync('./testBook.json', 'utf8'))
 const booksTest = JSON.parse(fs.readFileSync('./testBooks.json', 'utf8'))
 
-const app = express()
+const router = express()
 
-app.use(express.urlencoded({extended: false}))
+router.use(express.urlencoded({extended: false}))
 
-app.set("view engine", "ejs")
-app.set("views", path.join(__dirname, "/../presentation_layer/"))
+router.set("view engine", "ejs")
+router.set("views", path.join(__dirname, "/../presentation_layer/"))
 const host = '0.0.0.0'
 const port = 8080;
 
 //Enables the server
-app.listen(port, host, () => {
+router.listen(port, host, () => {
     console.log(`Server is running on http://${host}:${port}`)
 })
 
-app.get('/', (req,res) =>{
+router.get('/', (req,res) =>{
     res.render("home")
 })
 
-app.get('/contact', (req,res) =>{
+router.get('/contact', (req,res) =>{
     res.render("contact")
 })
 
-app.get('/books',async (req,res) =>{
+router.get('/books',async (req,res) =>{
+    console.log(returnBook(23))
     res.render("books", booksTest)
 })
 
-app.get('/book', (req,res) => {
+router.get('/book', (req,res) => {
     res.render("home")
 })
 
-app.post('/book', (req,res) =>{
+router.post('/book', (req,res) =>{
     res.render("book", bookTest)
+})
+
+router.get('/test/book', async (req,res) => {
+    res.send(await returnBook(30))
 })
