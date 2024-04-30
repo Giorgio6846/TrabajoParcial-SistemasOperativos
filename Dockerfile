@@ -16,9 +16,7 @@ RUN npm install
 
 WORKDIR /webServer
 
-COPY /application_layer/server.js /webServer/application_layer/server.js
-COPY /application_layer/DBconnection.js /webServer/application_layer/DBconnection.js
-COPY /application_layer/credentials.json /webServer/application_layer/credentials.json
+COPY /application_layer/ /webServer/application_layer/
 
 #COPY /presentation_layer /webServer/presentation_layer
 
