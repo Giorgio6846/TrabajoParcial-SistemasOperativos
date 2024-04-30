@@ -9,7 +9,7 @@ const booksTest = JSON.parse(fs.readFileSync('./testBooks.json', 'utf8'))
 
 const router = express()
 
-var production = false
+var production = true
 
 router.use(express.urlencoded({extended: false}))
 
@@ -27,20 +27,20 @@ router.get('/', (req,res) =>{
     res.render("home")
 })
 
-router.get('/contact', (req,res) =>{
-    res.render("contact")
-})
-
 router.get('/books',async (req,res) =>{
     if (production) {
-        res.render("books", returnBooks(20))
+        res.render("books",{booksL: await returnListBooks(20)})
     } else {
-        res.render("books", booksTest)
+        res.render("books",{booksL: booksTest})
     }
 })
 
 router.get('/book', (req,res) => {
-    res.render("home")
+    if(false) {
+        res.render("home")
+    } else {
+        res.render("book", returnBook(30))
+    }
 })
 
 router.post('/book', async (req,res) =>{
@@ -51,6 +51,18 @@ router.post('/book', async (req,res) =>{
     }
 })
 
-router.get('/test/book', async (req,res) => {
-    res.send(await returnBook(30))
+router.get('/test/book/json', async (req,res) => {
+    res.send(await returnBook(59))
+})
+
+router.get('/test/book/UI', async (req,res) => {
+    res.render("book", await returnBook(59))
+})
+
+router.get('/test/books/json', async (req,res) => {
+    res.send({booksL: await returnListBooks(20)})
+})
+
+router.get('/test/books/UI', async (req,res) => {
+    res.render("books",{booksL: await returnListBooks(20)})
 })

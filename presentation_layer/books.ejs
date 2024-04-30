@@ -14,7 +14,15 @@
     </header>
 
     <section>
-        
+
+        <% booksL.forEach(function(book) { %>
+        <li>
+            <%= book.nombre %>
+            <%= book.precio %>
+            <%= book.nombresApellidos %>
+            <%= book.editorial %>
+        </li>
+        <% }); %>
     </section>
 
     <footer>

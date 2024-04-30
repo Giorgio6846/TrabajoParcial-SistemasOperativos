@@ -46,10 +46,10 @@ async function connectionToDB(query) {
 
 async function returnBook(idBook) {
 
-    const queryDB = `SELECT libro.nombre, libro.precio, libro."numPaginas", libro."anhoPublicado", editorial.nombre, autor."nombresApellidos" FROM libro
+    const queryDB = `SELECT libro.nombre AS "nombreLibro", libro.precio AS "precio", libro."numPaginas", libro."anhoPublicado", editorial.nombre AS "editorial", autor."nombresApellidos" FROM libro
                         JOIN editorial ON libro."idEditorial" = editorial."idEditorial"
                         JOIN autor ON libro."idAutor" = autor."idAutor"
-                        Where libro."idLibro" = ${idBook}`
+                        Where libro."idLibro" =  ${idBook}`
 
     let dbResult;
     try {
@@ -60,15 +60,15 @@ async function returnBook(idBook) {
     
     console.log(dbResult.rows)
 
-    return dbResult.rows
+    return dbResult.rows[0]
 }
 
 async function returnListBooks(startingIdList) {
 
-    const queryDB = `SELECT libro.idLibro, libro.nombre, libro.precio, autor."nombresApellidos", editorial.nombre  FROM libro
-                                    JOIN editorial ON libro."idEditorial" = editorial."idEditorial"
-                                    JOIN autor ON libro."idAutor" = autor."idAutor"
-                                    LIMIT 10`
+    const queryDB = `SELECT libro."idLibro", libro.nombre, libro.precio, autor."nombresApellidos", editorial.nombre AS "editorial"FROM libro
+                    JOIN editorial ON libro."idEditorial" = editorial."idEditorial"
+                    JOIN autor ON libro."idAutor" = autor."idAutor"
+                    WHERE "libro"."idLibro" >= ${1 + startingIdList} AND "libro"."idLibro" <= ${20 + startingIdList}`
 
     let dbResult;
     try {
