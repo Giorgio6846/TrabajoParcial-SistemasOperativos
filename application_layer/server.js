@@ -1,7 +1,6 @@
 const fs = require('fs')
 const express = require('express')
 const path = require('path')
-const expressHandlebars = require('express-handlebars')
 const { returnBook, returnListBooks } = require('./DBconnection')
 
 const bookTest = JSON.parse(fs.readFileSync('./testBook.json', 'utf8'))
@@ -9,7 +8,7 @@ const booksTest = JSON.parse(fs.readFileSync('./testBooks.json', 'utf8'))
 
 const router = express()
 
-var production = false
+var production = true
 
 router.use(express.urlencoded({extended: false}))
 
@@ -28,10 +27,17 @@ router.get('/', (req,res) =>{
 })
 
 router.get('/books',async (req,res) =>{
-    if (production) {
-        res.render("books",{booksL: await returnListBooks(20)})
+    if(production) {
+        const listaLibros = req.query.listaLibros
+    
+        if(!isNaN(listaLibros) ) {
+            res.render("books", {booksL: await returnListBooks(listaLibros)})
+        }
+        else {
+            res.render("books", {booksL: await returnListBooks(1)})
+        }
     } else {
-        res.render("books",{booksL: booksTest})
+        res.render("books", {booksL: booksTest})
     }
 })
 
@@ -40,7 +46,6 @@ router.get('/book', async (req,res) => {
         const idLibro = req.query.idLibro
     
         if(!isNaN(idLibro) ) {
-            console.log(idLibro)
             res.render("book", await returnBook(idLibro))
         }
         else {

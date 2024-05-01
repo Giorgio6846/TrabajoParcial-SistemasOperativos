@@ -7,15 +7,12 @@
     <title>Catálogo de Libros - Re:Books</title>
 </head>
 
-
 <header style="background-color: #333; color: #fff; text-align: center; padding: 20px;">
     <h1 style="margin: 0;">Catálogo de Libros</h1>
 </header>
 <%- include('../presentation_layer/partials/navigationMenu'); %>
 
 <body>
-
-
         <% booksL.forEach(function(book) { %>
         <li>
             <a href="/book?idLibro=<%= book.idLibro %>"> <%= book.nombre %></a>
@@ -27,7 +24,6 @@
         </li>
         <% }); %>
     
-
     <footer>
         <%- include('../presentation_layer/partials/footer'); %>
     </footer>

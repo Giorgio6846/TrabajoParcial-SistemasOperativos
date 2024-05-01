@@ -1,8 +1,6 @@
 const { Pool } = require('pg')
 var fs = require('fs')
 var credentials = JSON.parse(fs.readFileSync('./credentials.json', 'utf8'))
-const { format } = require('sql-formatter');
-const { resourceUsage } = require('process');
 
 const pool = new Pool(credentials);
 
@@ -68,7 +66,7 @@ async function returnListBooks(startingIdList) {
     const queryDB = `SELECT libro."idLibro", libro.nombre, libro.precio, autor."nombresApellidos", editorial.nombre AS "editorial"FROM libro
                     JOIN editorial ON libro."idEditorial" = editorial."idEditorial"
                     JOIN autor ON libro."idAutor" = autor."idAutor"
-                    WHERE "libro"."idLibro" >= ${1 + startingIdList} AND "libro"."idLibro" <= ${20 + startingIdList}`
+                    WHERE "libro"."idLibro" >= (${startingIdList}) AND "libro"."idLibro" <= (19 + ${startingIdList}) `
 
     let dbResult;
     try {
