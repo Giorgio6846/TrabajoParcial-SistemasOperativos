@@ -7,17 +7,10 @@
     <title>Re:Books - Librería en línea</title>
 </head>
 
+<%- include('../presentation_layer/partials/header'); %>
+<%- include('../presentation_layer/partials/navigationMenu'); %>
+
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f6f6f6; color: #333;">
-
-    <header style="background-color: #333; color: #fff; text-align: center; padding: 20px;">
-        <h1 style="margin: 0;">Re:Books - Librería en línea</h1>
-    </header>
-
-    <nav style="background-color: #666; text-align: center; padding: 10px 0;">
-        <a href="../" style="color: #fff; text-decoration: none; margin: 0 10px;">Inicio</a>
-        <a href="../books" style="color: #fff; text-decoration: none; margin: 0 10px;">Catálogo</a>
-        <a href="#contacto" style="color: #fff; text-decoration: none; margin: 0 10px;">Contacto</a>
-    </nav>
 
     <section id="inicio" style="padding: 20px; text-align: center;">
         <h2>Bienvenido a Re:Books</h2>
@@ -35,10 +28,12 @@
         <p>Teléfono: +01 5678721</p>
     </section>
 
-    <footer style="background-color: #333; color: #fff; text-align: center; padding: 10px 0; position: fixed; bottom: 0; width: 100%;">
-        <p>&copy; 2024 Re:Books - Todos los derechos reservados</p>
-    </footer>
+
 
 </body>
+
+<footer>
+        <%- include('../presentation_layer/partials/footer'); %>
+</footer>
 
 </html>

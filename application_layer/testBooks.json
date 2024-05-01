@@ -1,142 +1,142 @@
 [
     {
         "idLibro": 1,
-        "nombreLibro": "Harry Potter and the Half-Blood Prince (Harry Potter  #6)",
+        "nombre": "Harry Potter and the Half-Blood Prince (Harry Potter  #6)",
         "precio": "$66.64",
-        "autores": "J.K. Rowling/Mary GrandPré",
+        "nombresApellidos": "J.K. Rowling/Mary GrandPré",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 2,
-        "nombreLibro": "Harry Potter and the Order of the Phoenix (Harry Potter  #5)",
+        "nombre": "Harry Potter and the Order of the Phoenix (Harry Potter  #5)",
         "precio": "$80.65",
-        "autores": "J.K. Rowling/Mary GrandPré",
+        "nombresApellidos": "J.K. Rowling/Mary GrandPré",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 3,
-        "nombreLibro": "Harry Potter and the Prisoner of Azkaban (Harry Potter  #3)",
+        "nombre": "Harry Potter and the Prisoner of Azkaban (Harry Potter  #3)",
         "precio": "$96.22",
-        "autores": "J.K. Rowling/Mary GrandPré",
+        "nombresApellidos": "J.K. Rowling/Mary GrandPré",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 4,
-        "nombreLibro": "The Long-Lost Map (Ulysses Moore #2)",
+        "nombre": "The Long-Lost Map (Ulysses Moore #2)",
         "precio": "$32.34",
-        "autores": "Pierdomenico Baccalario/Iacopo Bruno/Leah D. Janeczko",
+        "nombresApellidos": "Pierdomenico Baccalario/Iacopo Bruno/Leah D. Janeczko",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 5,
-        "nombreLibro": "The Eternity Code (Artemis Fowl  #3)",
+        "nombre": "The Eternity Code (Artemis Fowl  #3)",
         "precio": "$48.50",
-        "autores": "Eoin Colfer",
+        "nombresApellidos": "Eoin Colfer",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 6,
-        "nombreLibro": "The Wish List",
+        "nombre": "The Wish List",
         "precio": "$49.47",
-        "autores": "Eoin Colfer",
+        "nombresApellidos": "Eoin Colfer",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 7,
-        "nombreLibro": "The Mark of the Crown (Star Wars: Jedi Apprentice  #4)",
+        "nombre": "The Mark of the Crown (Star Wars: Jedi Apprentice  #4)",
         "precio": "$82.95",
-        "autores": "Jude Watson",
+        "nombresApellidos": "Jude Watson",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 8,
-        "nombreLibro": "Math Fables",
+        "nombre": "Math Fables",
         "precio": "$83.54",
-        "autores": "Greg Tang/Heather Cahoon",
+        "nombresApellidos": "Greg Tang/Heather Cahoon",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 9,
-        "nombreLibro": "Hush! A Thai Lullaby",
+        "nombre": "Hush! A Thai Lullaby",
         "precio": "$44.43",
-        "autores": "Minfong Ho/Holly Meade",
+        "nombresApellidos": "Minfong Ho/Holly Meade",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 10,
-        "nombreLibro": "The Door to Time (Ulysses Moore  #1)",
+        "nombre": "The Door to Time (Ulysses Moore  #1)",
         "precio": "$95.47",
-        "autores": "Pierdomenico Baccalario/Iacopo Bruno/Laura Zuccotti/Leah D. Janeczko/Beth Dunfey",
+        "nombresApellidos": "Pierdomenico Baccalario/Iacopo Bruno/Laura Zuccotti/Leah D. Janeczko/Beth Dunfey",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 11,
-        "nombreLibro": "The Journal of Scott Pendleton Collins: A World War 2 Soldier",
+        "nombre": "The Journal of Scott Pendleton Collins: A World War 2 Soldier",
         "precio": "$95.77",
-        "autores": "Walter Dean Myers",
+        "nombresApellidos": "Walter Dean Myers",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 12,
-        "nombreLibro": "King of the Middle March",
+        "nombre": "King of the Middle March",
         "precio": "$38.23",
-        "autores": "Kevin Crossley-Holland",
+        "nombresApellidos": "Kevin Crossley-Holland",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 13,
-        "nombreLibro": "Ruby the Red Fairy (Rainbow Magic  #1)",
+        "nombre": "Ruby the Red Fairy (Rainbow Magic  #1)",
         "precio": "$97.89",
-        "autores": "Daisy Meadows/Georgie Ripper",
+        "nombresApellidos": "Daisy Meadows/Georgie Ripper",
         "editorial": "Scholastic Inc."
     },
     {
         "idLibro": 14,
-        "nombreLibro": "Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5)",
+        "nombre": "Harry Potter Boxed Set  Books 1-5 (Harry Potter  #1-5)",
         "precio": "$91.90",
-        "autores": "J.K. Rowling/Mary GrandPré",
+        "nombresApellidos": "J.K. Rowling/Mary GrandPré",
         "editorial": "Scholastic"
     },
     {
         "idLibro": 15,
-        "nombreLibro": "Harry Potter and the Chamber of Secrets (Harry Potter  #2)",
+        "nombre": "Harry Potter and the Chamber of Secrets (Harry Potter  #2)",
         "precio": "$62.35",
-        "autores": "J.K. Rowling",
+        "nombresApellidos": "J.K. Rowling",
         "editorial": "Scholastic"
     },
     {
         "idLibro": 16,
-        "nombreLibro": "Harry Potter Collection (Harry Potter  #1-6)",
+        "nombre": "Harry Potter Collection (Harry Potter  #1-6)",
         "precio": "$39.96",
-        "autores": "J.K. Rowling",
+        "nombresApellidos": "J.K. Rowling",
         "editorial": "Scholastic"
     },
     {
         "idLibro": 17,
-        "nombreLibro": "The Call of the Wild",
+        "nombre": "The Call of the Wild",
         "precio": "$78.49",
-        "autores": "Jack London/Avi",
+        "nombresApellidos": "Jack London/Avi",
         "editorial": "Scholastic"
     },
     {
         "idLibro": 18,
-        "nombreLibro": "Avalanche",
+        "nombre": "Avalanche",
         "precio": "$33.00",
-        "autores": "Arthur J. Roth",
+        "nombresApellidos": "Arthur J. Roth",
         "editorial": "Scholastic"
     },
     {
         "idLibro": 19,
-        "nombreLibro": "Hunting the Hunter (On the Run  #6)",
+        "nombre": "Hunting the Hunter (On the Run  #6)",
         "precio": "$58.79",
-        "autores": "Gordon Korman",
+        "nombresApellidos": "Gordon Korman",
         "editorial": "Scholastic"
     },
     {
         "idLibro": 20,
-        "nombreLibro": "Public Enemies (On The Run  #5)",
+        "nombre": "Public Enemies (On The Run  #5)",
         "precio": "$99.02",
-        "autores": "Gordon Korman",
+        "nombresApellidos": "Gordon Korman",
         "editorial": "Scholastic"
     }
 ]

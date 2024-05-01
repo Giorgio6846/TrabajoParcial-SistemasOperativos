@@ -7,11 +7,13 @@
     <title>Detalles del Libro - Re:Books</title>
 </head>
 
+<header style="background-color: #333; color: #fff; text-align: center; padding: 20px;">
+    <h1 style="margin: 0;">Detalles del Libro</h1>
+</header>
+<%- include('../presentation_layer/partials/navigationMenu'); %>
+
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f6f6f6; color: #333;">
 
-    <header style="background-color: #333; color: #fff; text-align: center; padding: 20px;">
-        <h1 style="margin: 0;">Detalles del Libro</h1>
-    </header>
 
     <section style="padding: 20px;">
         <h2 style="color: #333;">Información del Libro</h2>
@@ -25,9 +27,10 @@
         </ul>
     </section>
 
-    <footer style="background-color: #333; color: #fff; text-align: center; padding: 10px 0; position: fixed; bottom: 0; width: 100%;">
-        <p>&copy; 2024 Re:Books - Todos los derechos reservados</p>
-    </footer>
+<footer>
+    <%- include('../presentation_layer/partials/footer'); %>
+</footer>
+
 
 </body>
 

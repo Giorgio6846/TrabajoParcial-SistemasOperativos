@@ -7,26 +7,29 @@
     <title>Catálogo de Libros - Re:Books</title>
 </head>
 
+
+<header style="background-color: #333; color: #fff; text-align: center; padding: 20px;">
+    <h1 style="margin: 0;">Catálogo de Libros</h1>
+</header>
+<%- include('../presentation_layer/partials/navigationMenu'); %>
+
 <body>
 
-    <header>
-        <h1 style="text-align: center;">Catálogo de Libros</h1>
-    </header>
-
-    <section>
 
         <% booksL.forEach(function(book) { %>
         <li>
-            <%= book.nombre %>
-            <%= book.precio %>
-            <%= book.nombresApellidos %>
-            <%= book.editorial %>
+            <a href="/book?idLibro=<%= book.idLibro %>"> <%= book.nombre %></a>
+            <p>
+                <%= book.precio %>
+                <%= book.nombresApellidos %>
+                <%= book.editorial %>
+            </p>
         </li>
         <% }); %>
-    </section>
+    
 
     <footer>
-        <p style="text-align: center;">&copy; 2024 Re:Books - Todos los derechos reservados</p>
+        <%- include('../presentation_layer/partials/footer'); %>
     </footer>
 
 </body>
